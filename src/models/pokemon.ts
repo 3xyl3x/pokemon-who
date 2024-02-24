@@ -1,1 +1,4 @@
-class Pokemon {}
+interface Pokemon {
+	name: string;
+	imageURL: string;
+}
