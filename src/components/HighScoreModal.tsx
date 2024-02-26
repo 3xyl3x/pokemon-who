@@ -5,10 +5,11 @@ interface ModalProps {
 	onClose: () => void;
 }
 
-const HighScoreModal: React.FC<ModalProps> = ({ score, onClose }) => {
+const HighScoreModal = (props: ModalProps) => {
+	const { score, onClose } = props;
+
 	return (
 		<>
-			{" "}
 			<div
 				className="modal fade show"
 				role="dialog"
