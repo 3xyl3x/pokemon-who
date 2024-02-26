@@ -6,9 +6,10 @@ import Answers from "./components/Answers";
 import FlashScore from "./components/FlashScore";
 import "bootstrap/dist/css/bootstrap.min.css";
 import HighScoreModal from "./components/HighScoreModal";
+import CountDownBar from "./components/CountdownBar";
 
 function App() {
-	const settings = { timer: 10, waitTimer: 2, questions: 3 };
+	const settings = { timer: 10, waitTimer: 2, questions: 10 };
 
 	const [pokemons, setPokemons] = useState<Pokemon[]>();
 	const [questionIndex, setQuestionIndex] = useState<number>();
@@ -61,7 +62,7 @@ function App() {
 	}, []);
 
 	useEffect(() => {
-		setRevealLevel(100 - (countdown / settings.timer) * 50);
+		setRevealLevel(100 - (countdown / settings.timer) * 100);
 	}, [countdown]);
 
 	useEffect(() => {
@@ -93,7 +94,7 @@ function App() {
 	}
 
 	function setUserAnswer(answer: string) {
-		if (answer === pokemons[questionIndex ?? 0]?.name) {
+		if (pokemons && answer === pokemons[questionIndex ?? 0]?.name) {
 			let points = Math.round(countdown);
 			setScore((prevScore) => prevScore + points);
 			setGainedScore(points);
@@ -105,40 +106,37 @@ function App() {
 
 	return (
 		<>
-			<p>
-				Poäng: {score} , gainedPoäng: {gainedScore} ,Nedräkning: {countdown},
-				Vänte-nedräkning: {waitCountdown}, Frågeindex: {questionIndex},
-				RevealIndex: {revealLevel}, frågor kvar: {questionsLeft}
-			</p>
 			{pokemons?.[questionIndex ?? 0] !== undefined && (
 				<>
-					{showHSModal && (
+					{showHSModal ? (
 						<HighScoreModal score={score} onClose={handleModalClose} />
+					) : (
+						<div className="card col-md-6 col-lg-4 col-xl-3 mx-auto border-0  text-center m-2">
+							<h1 className="py-2 user-select-none">
+								Score: <span className="badge bg-success"> {score}</span>
+							</h1>
+							<div className="position-relative  overflow-hidden p-5 user-select-none">
+								<FlashScore score={gainedScore} />
+								<Picture
+									pokemon={pokemons[questionIndex ?? 0]}
+									revealLevel={revealLevel}
+								/>
+							</div>
+							<div className="card-body">
+								<h5 className="card-title user-select-none">
+									Guess the Pokémon ({settings.questions + 1 - questionsLeft}/
+									{settings.questions})
+								</h5>
+								<CountDownBar revealLevel={revealLevel} />
+								<Answers
+									pokemons={pokemons}
+									correctAnswer={pokemons[questionIndex ?? 0].name}
+									showCorrect={waiting}
+									setUserAnswer={setUserAnswer}
+								/>
+							</div>
+						</div>
 					)}
-					<div className="card col-md-6 col-lg-4 col-xl-3 mx-auto border-0  text-center m-2">
-						<h1 className="py-2">
-							Score: <span className="badge bg-success"> {score}</span>
-						</h1>
-						<div
-							className="position-relative  overflow-hidden p-5"
-							style={{ maxHeight: "500px" }}
-						>
-							<FlashScore score={gainedScore} />
-							<Picture
-								pokemon={pokemons[questionIndex ?? 0]}
-								revealLevel={revealLevel}
-							/>
-						</div>
-						<div className="card-body">
-							<h5 className="card-title">Which pokemon is this?</h5>
-							<Answers
-								pokemons={pokemons}
-								correctAnswer={pokemons[questionIndex ?? 0].name}
-								showCorrect={waiting}
-								setUserAnswer={setUserAnswer}
-							/>
-						</div>
-					</div>
 				</>
 			)}
 		</>

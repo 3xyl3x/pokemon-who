@@ -17,17 +17,23 @@ const HighScoreModal: React.FC<ModalProps> = ({ score, onClose }) => {
 				<div className="modal-dialog">
 					<div className="modal-content">
 						<div className="modal-header">
-							<h5 className="modal-title" id="exampleModalLiveLabel">
+							<h2
+								className="modal-title user-select-none"
+								id="exampleModalLiveLabel"
+							>
 								Highscore
-							</h5>
+							</h2>
 						</div>
-						<div className="modal-body">
-							<h2>YOU GOT {score}</h2>
+						<div className="modal-body text-center user-select-none">
+							<h2>
+								YOU GOT <span className="badge text-bg-success">{score}</span>{" "}
+								POINTS!
+							</h2>
 						</div>
 						<div className="modal-footer">
 							<button
 								type="button"
-								className="btn btn-secondary"
+								className="btn btn-warning fw-bold"
 								data-bs-dismiss="modal"
 								onClick={onClose}
 							>
