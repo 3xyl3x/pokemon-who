@@ -1,30 +1,27 @@
-# Pokémon Guessing Game
+# Pokemon Guessing Game
 
-A small project where you guess the names of Pokémon. Pokémon data is fetched from the [PokéAPI](https://pokeapi.co/), and images are sourced from [Pokemon Database](https://pokemondb.net/).
-
-## Technologies Used
-
-- React
-- TypeScript
-- Bootstrap
+Welcome to the Pokemon Guessing Game! Test your Pokemon knowledge by identifying Pokemon based on blurred and colorless images.
 
 ## How to Play
 
-1. Clone the repository to your local machine.
-2. Install dependencies with `npm install`.
-3. Start the development server with `npm start`.
-4. Visit `http://localhost:3000` in your browser.
+1. Visit the [Pokemon Guessing Game](https://3xyl3x.github.io/pokemon-who/) website.
+2. Identify Pokemon by selecting the correct name from provided options.
+3. Images start blurred and colorless, gradually becoming clearer.
+4. Score is based on the time taken to identify Pokemon.
 
-## Gameplay
+## Mechanics
 
-- Guess the Pokémon name based on the displayed distorted image.
-- Select your answer by pressing the corresponding button.
-- The game includes a countdown timer for added excitement.
-- The score is calculated based on the time taken to answer.
+- Game fetches Pokemon data from [PokeAPI](https://pokeapi.co/).
+- Images sourced from [Pokemon Database](https://pokemondb.net/).
+- Built with React TypeScript and styled with Bootstrap.
 
-## Data Sources
+## Try It Out!
 
-- Pokémon data is fetched from the [PokéAPI](https://pokeapi.co/).
-- Pokémon images are sourced from [Pokemon Database](https://pokemondb.net/).
+Play the game: [Pokemon Guessing Game](https://3xyl3x.github.io/pokemon-who/)
 
-Special thanks to these platforms for providing valuable data and resources for this project.
+## Credits
+
+- Pokemon data: [PokeAPI](https://pokeapi.co/)
+- Pokemon images: [Pokemon Database](https://pokemondb.net/)
+
+Enjoy guessing the Pokemon and have fun!
