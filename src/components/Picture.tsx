@@ -13,7 +13,7 @@ const Picture = (props: PictureProps) => {
 		<>
 			<img
 				src={pokemon.imageURL}
-				className="card-img-top img-fluid"
+				className=" "
 				style={{
 					filter: revealLevel !== 100 ? pictureStyle : "",
 
