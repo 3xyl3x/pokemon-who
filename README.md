@@ -1,30 +1,30 @@
-# React + TypeScript + Vite
+# Pokémon Guessing Game
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A small project where you guess the names of Pokémon. Pokémon data is fetched from the [PokéAPI](https://pokeapi.co/), and images are sourced from [Pokemon Database](https://pokemondb.net/).
 
-Currently, two official plugins are available:
+## Technologies Used
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- React
+- TypeScript
+- Bootstrap
 
-## Expanding the ESLint configuration
+## How to Play
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+1. Clone the repository to your local machine.
+2. Install dependencies with `npm install`.
+3. Start the development server with `npm start`.
+4. Visit `http://localhost:3000` in your browser.
 
-- Configure the top-level `parserOptions` property like this:
+## Gameplay
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+- Guess the Pokémon name based on the displayed distorted image.
+- Select your answer by pressing the corresponding button.
+- The game includes a countdown timer for added excitement.
+- The score is calculated based on the time taken to answer.
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Data Sources
+
+- Pokémon data is fetched from the [PokéAPI](https://pokeapi.co/).
+- Pokémon images are sourced from [Pokemon Database](https://pokemondb.net/).
+
+Special thanks to these platforms for providing valuable data and resources for this project.
