@@ -1,0 +1,22 @@
+html,
+body,
+#root {
+	background-color: #333;
+}
+
+.flash-score {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);
+	z-index: 1;
+	opacity: 0;
+	transition: opacity 0.5s;
+	font-size: 20vw;
+	color: gold;
+	text-shadow: 0px 0px 5px black;
+}
+
+.flash-score.visible {
+	opacity: 1;
+}

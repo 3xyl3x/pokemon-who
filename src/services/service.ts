@@ -1,8 +1,8 @@
 import axios from "axios";
 
-const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=20";
+const API_URL = "https://pokeapi.co/api/v2/pokemon?limit=10";
 
-export const getPokemons = async () => {
+const getPokemons = async () => {
 	const response = await axios.get(API_URL);
 	const pokemons: Pokemon[] = [];
 	response.data.results.forEach((element: { name: string }) => {
@@ -14,3 +14,5 @@ export const getPokemons = async () => {
 	});
 	return pokemons;
 };
+
+export default getPokemons;
